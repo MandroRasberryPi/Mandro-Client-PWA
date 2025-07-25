@@ -1,11 +1,23 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CameraPage() {
   const ip = process.env.NEXT_PUBLIC_IP;
   const cam0Ref = useRef<HTMLImageElement>(null);
   const cam1Ref = useRef<HTMLImageElement>(null);
+  const [isLandscape, setIsLandscape] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const ws0 = new WebSocket(`ws://${ip}:8000/ws0`);
@@ -25,14 +37,26 @@ export default function CameraPage() {
   }, [ip]);
 
   return (
-    <main className="bg-black flex flex-col items-center text-white h-screen m-0 pt-5">
-      <div className="flex gap-5 mt-5">
-        <div>
-          <img ref={cam0Ref} alt="Camera 0" width={320} height={240} />
-        </div>
-        <div>
-          <img ref={cam1Ref} alt="Camera 1" width={320} height={240} />
-        </div>
+    <main className="bg-black text-white h-screen flex flex-col items-center pt-5 m-0">
+      <div
+        className={`flex gap-5 mt-5 justify-center w-full ${
+          isLandscape ? "flex-row" : "flex-col"
+        }`}
+      >
+        <img
+          ref={cam0Ref}
+          alt="Camera 0"
+          className={`object-contain ${isLandscape ? "w-1/2" : "w-11/12"} ${
+            isLandscape ? "" : "rotate-90"
+          }`}
+        />
+        <img
+          ref={cam1Ref}
+          alt="Camera 1"
+          className={`object-contain ${isLandscape ? "w-1/2" : "w-11/12"} ${
+            isLandscape ? "" : "rotate-90"
+          }`}
+        />
       </div>
     </main>
   );
