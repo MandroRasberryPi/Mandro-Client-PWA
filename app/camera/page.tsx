@@ -25,19 +25,8 @@ export default function CameraPage() {
   }, [ip]);
 
   return (
-    <main
-      style={{
-        backgroundColor: "black",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        color: "white",
-        height: "100vh",
-        margin: 0,
-        paddingTop: "20px",
-      }}
-    >
-      <div style={{ display: "flex", gap: 20, marginTop: 20 }}>
+    <main className="bg-black flex flex-col items-center text-white h-screen m-0 pt-5">
+      <div className="flex gap-5 mt-5">
         <div>
           <img ref={cam0Ref} alt="Camera 0" width={320} height={240} />
         </div>
