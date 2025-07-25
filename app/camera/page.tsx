@@ -15,7 +15,6 @@ export default function CameraPage() {
 
     handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -37,23 +36,23 @@ export default function CameraPage() {
   }, [ip]);
 
   return (
-    <main className="bg-black text-white h-screen flex flex-col items-center pt-5 m-0">
+    <main className="bg-black text-white h-screen w-screen flex items-center justify-center">
       <div
-        className={`flex gap-5 mt-5 justify-center w-full ${
+        className={`flex gap-5 ${
           isLandscape ? "flex-row" : "flex-col"
-        }`}
+        } items-center justify-center`}
       >
         <img
           ref={cam0Ref}
           alt="Camera 0"
-          className={`object-contain ${isLandscape ? "w-1/2" : "w-11/12"} ${
+          className={`object-contain ${isLandscape ? "w-[48vw]" : "w-[90vw]"} ${
             isLandscape ? "" : "rotate-90"
           }`}
         />
         <img
           ref={cam1Ref}
           alt="Camera 1"
-          className={`object-contain ${isLandscape ? "w-1/2" : "w-11/12"} ${
+          className={`object-contain ${isLandscape ? "w-[48vw]" : "w-[90vw]"} ${
             isLandscape ? "" : "rotate-90"
           }`}
         />
