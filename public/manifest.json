@@ -1,7 +1,7 @@
 {
     "name": "Mandro",
     "short_name": "Mandro",
-    "description": "Mandro raspberrypi",
+    "description": "Mandro raspberrypi support Application",
     "icons": [
       {
         "src": "/icon-192x192.png",
