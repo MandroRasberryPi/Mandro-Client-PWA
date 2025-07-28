@@ -5,15 +5,27 @@ import { useState } from 'react';
 
 export default function StartPage() {
   const [ip, setIp] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleStart = () => {
-    if (!ip) {
-      alert("IP를 입력해주세요!");
+  const handleStart = async () => {
+    if (!ip.trim()) {
+      alert("IP 주소를 입력해주세요!");
       return;
     }
 
+    setLoading(true);
     const url = `https://${ip}:8000/`;
-    window.location.href = url; 
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+
+      clearTimeout(timeout);
+      window.location.href = url;
+    } catch (err) {
+      alert("IP 연결에 실패했습니다. 다시 한번 확인해주세요!");
+      setLoading(false);
+    }
   };
 
   return (
@@ -47,9 +59,10 @@ export default function StartPage() {
 
           <button
             onClick={handleStart}
-            className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition"
+            disabled={loading}
+            className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition disabled:opacity-50"
           >
-            START
+            {loading ? "연결 시도 중..." : "START"}
           </button>
         </div>
       </div>
