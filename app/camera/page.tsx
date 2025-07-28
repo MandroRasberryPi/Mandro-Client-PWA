@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 export default function CameraPage() {
   const ip = process.env.NEXT_PUBLIC_IP;
