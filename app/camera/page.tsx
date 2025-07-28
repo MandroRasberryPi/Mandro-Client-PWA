@@ -7,9 +7,9 @@ export default function CameraPage() {
 
   useEffect(() => {
     if (ip) {
-      location.replace(`https://${ip}:8000/`);
+      window.location.replace(`https://${ip}:8000/`);
     }
-  }, [ip]);  
+  }, [ip]);
 
   return <p>Redirecting to camera view...</p>;
 }
