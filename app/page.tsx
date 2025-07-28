@@ -1,10 +1,20 @@
-'use client';
+"use client";
 
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function StartPage() {
-  const router = useRouter();
+  const [ip, setIp] = useState("");
+
+  const handleStart = () => {
+    if (!ip) {
+      alert("IP를 입력해주세요!");
+      return;
+    }
+
+    const url = `https://${ip}:8000/`;
+    window.location.href = url; 
+  };
 
   return (
     <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
@@ -30,11 +40,13 @@ export default function StartPage() {
               type="text"
               placeholder="Enter IP"
               className="w-full h-10 px-3 rounded-lg border border-mandro-gray focus:outline-none"
+              value={ip}
+              onChange={(e) => setIp(e.target.value)}
             />
           </div>
 
           <button
-            onClick={() => router.push('/camera')}
+            onClick={handleStart}
             className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition"
           >
             START
