@@ -14,8 +14,8 @@ export default function StartPage() {
       alert("IP 주소를 입력해주세요!");
       return;
     }
-
-    router.push(`/camera?ip=${ip}`);
+    localStorage.setItem("ip", ip.trim());
+    router.push("/camera");
   };
 
   return (
@@ -35,7 +35,7 @@ export default function StartPage() {
           </div>
 
           <div>
-            <p className="text-xl font-bold text-mandro-accent">Distored</p>
+            <p className="text-xl font-bold text-mandro-accent">Distorted</p>
             <input
               type="range"
               className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full"
