@@ -51,7 +51,7 @@ function CameraInner() {
 
 export default function CameraPage() {
   return (
-    <Suspense fallback={<div>Loading camera...</div>}>
+    <Suspense fallback={<div>카메라 로딩중 ... </div>}>
       <CameraInner />
     </Suspense>
   );
