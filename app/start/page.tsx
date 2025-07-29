@@ -6,6 +6,7 @@ import { useState } from 'react';
 export default function StartPage() {
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(false);
+  const [connected, setConnected] = useState(false);
 
   const handleStart = () => {
     if (!ip) {
