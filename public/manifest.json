@@ -2,7 +2,7 @@
     "name": "Mandro",
     "short_name": "Mandro",
     "id": "/",
-    "start_url": "/",
+    "start_url": "/start",
     "display": "fullscreen",
     "orientation": "portrait",
     "background_color": "#ffffff",
