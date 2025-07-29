@@ -7,8 +7,10 @@ export default function StartPage() {
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
-
   const handleStart = async () => {
+  const router = useRouter();
+
+  const handleStart = () => {
     if (!ip.trim()) {
       alert("IP 주소를 입력해주세요!");
       return;
@@ -47,7 +49,6 @@ export default function StartPage() {
       </main>
     );
   }
-
   return (
     <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
       <div className="flex flex-col custom:flex-row items-center justify-center gap-16 w-full max-w-6xl">
