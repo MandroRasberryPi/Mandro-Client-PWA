@@ -6,6 +6,7 @@ import { useState } from 'react';
 export default function StartPage() {
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(false);
+  const [connected, setConnected] = useState(false);
 
   const handleStart = async () => {
     if (!ip.trim()) {
@@ -14,19 +15,38 @@ export default function StartPage() {
     }
 
     setLoading(true);
-    const url = `https://${ip}:8000/`;
+
+    const testUrl = `https://${ip}:8000/`;
 
     try {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
+      const timeout = setTimeout(() => controller.abort(), 5000);
+
+      await fetch(testUrl, {
+        method: 'HEAD',
+        signal: controller.signal,
+      });
 
       clearTimeout(timeout);
-      window.location.href = url;
+      setConnected(true);
     } catch (err) {
       alert("IP 연결에 실패했습니다. 다시 한번 확인해주세요!");
       setLoading(false);
     }
   };
+
+  if (connected) {
+    return (
+      <main className="bg-black min-h-screen w-full overflow-hidden">
+        <iframe
+          src={`https://${ip}:8000/`}
+          className="w-full h-screen border-none"
+          allow="camera; microphone"
+          sandbox="allow-scripts allow-same-origin"
+        />
+      </main>
+    );
+  }
 
   return (
     <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
