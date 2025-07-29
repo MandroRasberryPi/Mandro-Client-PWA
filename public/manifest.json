@@ -1,7 +1,15 @@
 {
     "name": "Mandro",
     "short_name": "Mandro",
-    "description": "Mandro raspberrypi support Application",
+    "id": "/",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "launch_handler": {
+      "client_mode": "focus-existing"
+    },
     "icons": [
       {
         "src": "/icon-192x192.png",
@@ -13,10 +21,6 @@
         "sizes": "512x512",
         "type": "image/png"
       }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff"
+    ]
   }
   
