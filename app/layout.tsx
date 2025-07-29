@@ -3,11 +3,6 @@
 import "./globals.css";
 import { useEffect } from "react";
 
-export const metadata = {
-  title: "Mandro",
-  description: "Mandro raspberrypi support Application",
-};
-
 export default function RootLayout({
   children,
 }: {
