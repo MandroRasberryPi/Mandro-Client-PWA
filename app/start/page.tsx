@@ -1,21 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function StartPage() {
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleStart = () => {
-    if (!ip.trim()) {
-      alert("IP 주소를 입력해주세요!");
+    if (!ip) {
+      alert("IP를 입력해주세요!");
       return;
     }
-    localStorage.setItem("ip", ip.trim());
-    router.push("/camera");
+
+    const url = `https://${ip}:8000/`;
+    window.location.href = url; 
   };
 
   return (
@@ -26,20 +25,14 @@ export default function StartPage() {
         </div>
 
         <div className="flex flex-col gap-6 w-full max-w-md">
-          <div>
+          <div>g
             <p className="text-xl font-bold text-mandro-accent">Eye Distance</p>
-            <input
-              type="range"
-              className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full"
-            />
+            <input type="range" className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full" />
           </div>
 
           <div>
-            <p className="text-xl font-bold text-mandro-accent">Distorted</p>
-            <input
-              type="range"
-              className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full"
-            />
+            <p className="text-xl font-bold text-mandro-accent">Distored</p>
+            <input type="range" className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full" />
           </div>
 
           <div>
@@ -54,11 +47,11 @@ export default function StartPage() {
           </div>
 
           <button
-            onClick={handleStart}
-            disabled={loading}
-            className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition disabled:opacity-50"
+             onClick={handleStart}
+             disabled={loading}
+            className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition"
           >
-            START
+            {loading ? "연결 시도 중..." : "START"}
           </button>
         </div>
       </div>
