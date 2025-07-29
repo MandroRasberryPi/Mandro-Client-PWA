@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.idea
+# workbox generated files
+public/workbox-*.js
+public/sw.js.map
+
+# devtools & .map
+**/*.map
+**/.next
