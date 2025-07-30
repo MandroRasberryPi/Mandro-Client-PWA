@@ -4,7 +4,6 @@
     "id": "/",
     "start_url": "/start",
     "display": "fullscreen",
-    "orientation": "portrait",
     "background_color": "#ffffff",
     "theme_color": "#000000",
     "launch_handler": {
