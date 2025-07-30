@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function StartPage() {
   const [ip, setIp] = useState("");
-  const [eyeDistance, setEyeDistance] = useState(0);  
+  const [eyeDistance, setEyeDistance] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const handleStart = async () => {
@@ -47,13 +47,12 @@ export default function StartPage() {
 
   return (
     <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
-      <div className="flex flex-col custom:flex-row items-center justify-center gap-16 w-full max-w-6xl">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-16 w-full max-w-screen-md">
         <div className="flex flex-col items-center md:items-start">
           <Image src="/logo.png" alt="Mand.ro Logo" width={240} height={60} />
         </div>
 
         <div className="flex flex-col gap-6 w-full max-w-md">
-
           <div>
             <div className="flex justify-between">
               <p className="text-xl font-bold text-mandro-accent">Eye Distance</p>
