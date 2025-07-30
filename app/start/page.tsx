@@ -5,8 +5,7 @@ import { useState } from "react";
 
 export default function StartPage() {
   const [ip, setIp] = useState("");
-  const [eyeDistance, setEyeDistance] = useState(0);
-  const [distorted, setDistorted] = useState(0);   
+  const [eyeDistance, setEyeDistance] = useState(0);  
   const [loading, setLoading] = useState(false);
 
   const handleStart = async () => {
@@ -20,7 +19,6 @@ export default function StartPage() {
     const left = Math.round(-(eyeDistance / 2));
     const right = Math.round(eyeDistance / 2);
 
-
     try {
       const response = await fetch(`https://${ip}:8000/update`, {
         method: "POST",
@@ -30,7 +28,6 @@ export default function StartPage() {
         body: new URLSearchParams({
           left: left.toString(),
           right: right.toString(),
-          distorted: distorted.toFixed(2),
         }),
       });
 
@@ -68,22 +65,6 @@ export default function StartPage() {
               max="100"
               value={eyeDistance}
               onChange={(e) => setEyeDistance(Number(e.target.value))}
-              className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full"
-            />
-          </div>
-
-          <div>
-            <div className="flex justify-between">
-              <p className="text-xl font-bold text-mandro-accent">Distorted</p>
-              <span className="text-mandro-accent font-mono">{distorted.toFixed(2)}</span>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={distorted}
-              onChange={(e) => setDistorted(parseFloat(e.target.value))}
               className="w-full accent-mandro-primary bg-mandro-gray h-2 rounded-full"
             />
           </div>
