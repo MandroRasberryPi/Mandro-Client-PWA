@@ -55,22 +55,25 @@ export default function StartPage() {
     }
   };
 
+  const textSizeClass = isLandscape ? "text-lg" : "text-2xl";
+  const labelSizeClass = isLandscape ? "text-xl" : "text-3xl";
+  const logoWidth = isLandscape ? 280 : 320;
+  const logoHeight = isLandscape ? 70 : 90;
+
   return (
-    <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
+    <main className={`bg-mandro-bg min-h-screen flex items-center justify-center px-4 ${textSizeClass}`}>
       <div
-        className={`flex ${
-          isLandscape ? "flex-row" : "flex-col"
-        } items-center justify-center gap-16 w-full`}
+        className={`flex ${isLandscape ? "flex-row" : "flex-col"} items-center justify-center gap-16 w-full`}
       >
         <div className="flex flex-col items-center">
-          <Image src="/logo.png" alt="Mand.ro Logo" width={240} height={60} />
+          <Image src="/logo.png" alt="Mand.ro Logo" width={logoWidth} height={logoHeight} />
         </div>
 
-        <div className="flex flex-col gap-6 w-full">
-          <div>
-            <div className="flex justify-between">
-              <p className="text-xl font-bold text-mandro-accent">Eye Distance</p>
-              <span className="text-mandro-accent font-mono">{eyeDistance}</span>
+        <div className="flex flex-col gap-6 w-full items-center">
+          <div className="w-[70%]">
+            <div className={`flex justify-between font-bold text-mandro-accent ${labelSizeClass}`}>
+              <p>Eye Distance</p>
+              <span className="font-mono">{eyeDistance}</span>
             </div>
             <input
               type="range"
@@ -82,12 +85,12 @@ export default function StartPage() {
             />
           </div>
 
-          <div>
-            <p className="text-xl font-bold text-mandro-accent">IP Address</p>
+          <div className="w-[70%]">
+            <p className={`font-bold text-mandro-accent mb-1 ${labelSizeClass}`}>IP Address</p>
             <input
               type="text"
               placeholder="Enter IP"
-              className="w-full h-10 px-3 rounded-lg border border-mandro-gray focus:outline-none"
+              className="w-full h-12 px-4 rounded-lg border border-mandro-gray focus:outline-none"
               value={ip}
               onChange={(e) => setIp(e.target.value)}
             />
@@ -96,7 +99,7 @@ export default function StartPage() {
           <button
             onClick={handleStart}
             disabled={loading}
-            className="bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition"
+            className="w-[70%] bg-mandro-primary text-white font-bold py-4 rounded-2xl hover:opacity-90 transition text-xl"
           >
             {loading ? "연결 시도 중..." : "START"}
           </button>
