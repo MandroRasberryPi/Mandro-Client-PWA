@@ -45,10 +45,10 @@ export default function LandingPage() {
     setShowInstall(false);
   };
 
-  const titleSize = isLandscape ? "text-2xl" : "text-4xl";
-  const descSize = isLandscape ? "text-base" : "text-lg";
-  const logoSize = isLandscape ? "w-500 h-173" : "w-650 h-224";
-  const buttonSize = isLandscape ? "text-base py-2" : "text-lg py-3";
+  const titleSize = isLandscape ? "text-xl" : "text-3xl";
+  const descSize = isLandscape ? "text-lg" : "text-xl";
+  const logoSize = isLandscape ? "w-300 h-104" : "w-400 h-138";
+  const buttonSize = isLandscape ? "text-lg py-2" : "text-xl py-3";
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8">
@@ -66,7 +66,7 @@ export default function LandingPage() {
 
       <Link href="/start">
         <button
-          className={`w-40 px-6 ${buttonSize} bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4`}
+          className={`w-[34%] px-6 ${buttonSize} bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4`}
         >
           기능 시작하기
         </button>
@@ -75,7 +75,7 @@ export default function LandingPage() {
       {showInstall && (
         <button
           onClick={handleInstallClick}
-          className={`w-40 px-6 ${buttonSize} bg-green-600 text-white rounded-md hover:bg-green-700`}
+          className={`w-[34%] px-6 ${buttonSize} bg-green-600 text-white rounded-md hover:bg-green-700`}
         >
           앱 설치하기
         </button>
