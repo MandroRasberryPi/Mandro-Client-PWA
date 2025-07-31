@@ -66,7 +66,7 @@ export default function LandingPage() {
 
       <Link href="/start">
         <button
-          className={`w-[34%] px-6 ${buttonSize} bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4`}
+          className={`w-[70%] px-6 ${buttonSize} bg-blue-500 text-white rounded-md hover:bg-blue-600 mb-4`}
         >
           기능 시작하기
         </button>
@@ -75,7 +75,7 @@ export default function LandingPage() {
       {showInstall && (
         <button
           onClick={handleInstallClick}
-          className={`w-[34%] px-6 ${buttonSize} bg-green-600 text-white rounded-md hover:bg-green-700`}
+          className={`w-[70%] px-6 ${buttonSize} bg-green-600 text-white rounded-md hover:bg-green-700`}
         >
           앱 설치하기
         </button>
