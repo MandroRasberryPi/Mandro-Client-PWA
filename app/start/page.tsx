@@ -57,8 +57,8 @@ export default function StartPage() {
 
   const textSizeClass = isLandscape ? "text-lg" : "text-2xl";
   const labelSizeClass = isLandscape ? "text-xl" : "text-3xl";
-  const logoWidth = isLandscape ? 280 : 320;
-  const logoHeight = isLandscape ? 70 : 90;
+  const logoWidth = isLandscape ? 500 : 650;
+  const logoHeight = isLandscape ? 173 : 224;
 
   return (
     <main className={`bg-mandro-bg min-h-screen flex items-center justify-center px-4 ${textSizeClass}`}>

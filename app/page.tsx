@@ -47,7 +47,7 @@ export default function LandingPage() {
 
   const titleSize = isLandscape ? "text-2xl" : "text-4xl";
   const descSize = isLandscape ? "text-base" : "text-lg";
-  const logoSize = isLandscape ? "w-48 h-20" : "w-60 h-28";
+  const logoSize = isLandscape ? "w-500 h-173" : "w-650 h-224";
   const buttonSize = isLandscape ? "text-base py-2" : "text-lg py-3";
 
   return (
