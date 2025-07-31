@@ -1,12 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function StartPage() {
   const [ip, setIp] = useState("");
   const [eyeDistance, setEyeDistance] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [isLandscape, setIsLandscape] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+    };
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleStart = async () => {
     if (!ip) {
@@ -47,7 +57,11 @@ export default function StartPage() {
 
   return (
     <main className="bg-mandro-bg min-h-screen flex items-center justify-center px-4">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-16 w-full max-w-screen-md">
+      <div
+        className={`flex ${
+          isLandscape ? "flex-row" : "flex-col"
+        } items-center justify-center gap-16 w-full max-w-screen-md`}
+      >
         <div className="flex flex-col items-center md:items-start">
           <Image src="/logo.png" alt="Mand.ro Logo" width={240} height={60} />
         </div>
