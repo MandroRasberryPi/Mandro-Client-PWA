@@ -13,7 +13,7 @@ export default function StartPage() {
     const handleResize = () => {
       setIsLandscape(window.innerWidth > window.innerHeight);
     };
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -60,13 +60,13 @@ export default function StartPage() {
       <div
         className={`flex ${
           isLandscape ? "flex-row" : "flex-col"
-        } items-center justify-center gap-16 w-full max-w-screen-md`}
+        } items-center justify-center gap-16 w-full`}
       >
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center">
           <Image src="/logo.png" alt="Mand.ro Logo" width={240} height={60} />
         </div>
 
-        <div className="flex flex-col gap-6 w-full max-w-md">
+        <div className="flex flex-col gap-6 w-full">
           <div>
             <div className="flex justify-between">
               <p className="text-xl font-bold text-mandro-accent">Eye Distance</p>
